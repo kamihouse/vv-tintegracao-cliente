@@ -1,4 +1,4 @@
-package modClientes;
+package br.ufcqx.modelo;
 
 public class Main {
 
