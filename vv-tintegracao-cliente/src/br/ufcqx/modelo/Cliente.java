@@ -6,6 +6,7 @@ package br.ufcqx.modelo;
  * @author matheus, jefferson, thiago
  * @version 1.0
  */
+
 public class Cliente {
 	
 	private String nome;
@@ -218,8 +219,6 @@ public class Cliente {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-	
-	
 	
 }
 
