@@ -1,5 +1,11 @@
 package br.ufcqx.modelo;
 
+/**
+ * Classe Cliente.
+ * Modelo que gerencia clientes.
+ * @author matheus, jefferson, thiago
+ * @version 1.0
+ */
 public class Cliente {
 	
 	private String nome;
@@ -16,8 +22,22 @@ public class Cliente {
 	private String observacao;
 	private int id;
 	
-	
-	
+	/**
+	 * Contrutor da classe Cliente.
+	 * @param nome
+	 * @param endereco
+	 * @param bairro
+	 * @param cidade
+	 * @param estado
+	 * @param cep
+	 * @param cnpj
+	 * @param cpf
+	 * @param numero
+	 * @param email
+	 * @param telefone
+	 * @param observacao
+	 * @param id
+	 */
 	public Cliente(String nome, String endereco, String bairro, String cidade,
 			String estado, String cep, String cnpj, String cpf, int numero,
 			String email, int telefone, String observacao, int id) {
@@ -53,10 +73,18 @@ public class Cliente {
 		return cpf;
 	}
 		
+	/**
+	 * Recupera Nome.
+	 * @return
+	 */
 	public String getNome() {
 		return nome;
 	}
 	
+	/**
+	 * Adiciona Nome.
+	 * @param nome
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
