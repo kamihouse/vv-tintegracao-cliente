@@ -23,6 +23,7 @@ public class Cliente {
 	private String observacao;
 	private int id;
 	
+	
 	/**
 	 * Contrutor da classe Cliente.
 	 * @param nome
@@ -61,11 +62,21 @@ public class Cliente {
 	public Cliente(){
 		super();
 	}
-
+	
+	
+	/**
+	 * Recupera Id do cliente.
+	 * @return int id
+	 */
 	public int getId() {
 		return id;
 	}
-
+	
+	
+	/**
+	 * Adiciona Id do cliente.
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -197,10 +208,19 @@ public class Cliente {
 	}
 	
 	
+	/**
+	 * Recupera Cpf do cliente.
+	 * @return String cpf
+	 */
 	public String getCpf() {
 		return cpf;
 	}
 	
+	
+	/**
+	 * Adiciona Cpf do cliente.
+	 * @param cpf
+	 */
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
