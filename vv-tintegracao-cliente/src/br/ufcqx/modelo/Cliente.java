@@ -16,6 +16,31 @@ public class Cliente {
 	private String observacao;
 	private int id;
 	
+	
+	
+	public Cliente(String nome, String endereco, String bairro, String cidade,
+			String estado, String cep, String cnpj, String cpf, int numero,
+			String email, int telefone, String observacao, int id) {
+		super();
+		this.nome = nome;
+		this.endereco = endereco;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
+		this.cnpj = cnpj;
+		this.cpf = cpf;
+		this.numero = numero;
+		this.email = email;
+		this.telefone = telefone;
+		this.observacao = observacao;
+		this.id = id;
+	}
+	
+	public Cliente(){
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}
