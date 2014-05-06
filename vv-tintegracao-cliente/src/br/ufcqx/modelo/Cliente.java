@@ -25,7 +25,7 @@ public class Cliente {
 	
 	
 	/**
-	 * Contrutor da classe Cliente.
+	 * Contrutor da classe Cliente com preenchimento dos parametros obrigatório.
 	 * @param nome
 	 * @param endereco
 	 * @param bairro
@@ -59,6 +59,10 @@ public class Cliente {
 		this.id = id;
 	}
 	
+	
+	/**
+	 * Construtor da classe Cliente sem parametros.
+	 */
 	public Cliente(){
 		super();
 	}
@@ -225,34 +229,74 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 	
+	
+	/**
+	 * Recupera Número do cliente.
+	 * @return int numero
+	 */
 	public int getNumero() {
 		return numero;
 	}
 	
+	
+	/**
+	 * Adiciona Número do cliente.
+	 * @param numero
+	 */
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 	
+	
+	/**
+	 * Recupera Email do cliente.
+	 * @return String email
+	 */
 	public String getEmail() {
 		return email;
 	}
 	
+	
+	/**
+	 * Adiciona Email do cliente.
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	
+	
+	/**
+	 * Recupera Telefone do cliente.
+	 * @return int telefone
+	 */
 	public int getTelefone() {
 		return telefone;
 	}
 	
+	
+	/**
+	 * Adiciona Telefone do cliente.
+	 * @param telefone
+	 */
 	public void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
 	
+	
+	/**
+	 * Recupera Observações do cliente.
+	 * @return String observacao
+	 */
 	public String getObservacao() {
 		return observacao;
 	}
 	
+	
+	/**
+	 * Adicionar Observações do cliente.
+	 * @param observacao
+	 */
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
