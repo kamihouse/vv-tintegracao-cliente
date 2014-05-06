@@ -70,10 +70,6 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-	
 	
 	/**
 	 * Recupera Nome do cliente.
@@ -164,23 +160,44 @@ public class Cliente {
 		this.estado = estado;
 	}
 	
+	
+	/**
+	 * Recupera Cep do cliente.
+	 * @return String cep
+	 */
 	public String getCep() {
 		return cep;
 	}
 	
+	
+	/**
+	 * Adiciona Cep do cliente.
+	 * @param cep
+	 */
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
 	
+	
+	/**
+	 * Recupera Cnpj do cliente.
+	 * @return String cnpj
+	 */
 	public String getCnpj() {
 		return cnpj;
 	}
 	
+	
+	/**
+	 * Adiciona Cnpj do cliente.
+	 * @param cnpj
+	 */
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	
-	public String getCnpf() {
+	
+	public String getCpf() {
 		return cpf;
 	}
 	
