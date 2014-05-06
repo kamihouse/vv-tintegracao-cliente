@@ -72,51 +72,93 @@ public class Cliente {
 	public String getCpf() {
 		return cpf;
 	}
-		
+	
+	
 	/**
-	 * Recupera Nome.
-	 * @return
+	 * Recupera Nome do cliente.
+	 * @return String nome
 	 */
 	public String getNome() {
 		return nome;
 	}
 	
+	
 	/**
-	 * Adiciona Nome.
-	 * @param nome
+	 * Adiciona Nome do cliente.
+	 * @param String nome
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
+	
+	/**
+	 * Recupera Endereço do cliente.
+	 * @return String endereco
+	 */
 	public String getEndereco() {
 		return endereco;
 	}
 	
+	
+	/**
+	 * Adiciona Endereço do cliente.
+	 * @param endereco
+	 */
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 	
+	
+	/**
+	 * Recupera Bairro do cliente.
+	 * @return String bairro
+	 */
 	public String getBairro() {
 		return bairro;
 	}
 	
+	
+	/**
+	 * Adiciona Bairro do cliente.
+	 * @param bairro
+	 */
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
 	
+	
+	/**
+	 * Recupera Cidade do cliente.
+	 * @return String cidade
+	 */
 	public String getCidade() {
 		return cidade;
 	}
 	
+	
+	/**
+	 * Adiciona Cidade do cliente.
+	 * @param cidade
+	 */
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
 	
+	
+	/**
+	 * Recupera Estado do cliente.
+	 * @return String estado
+	 */
 	public String getEstado() {
 		return estado;
 	}
 	
+	
+	/**
+	 * Adiciona Estado do cliente.
+	 * @param estado
+	 */
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
