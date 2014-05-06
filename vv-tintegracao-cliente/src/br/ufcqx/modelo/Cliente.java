@@ -1,12 +1,15 @@
 package br.ufcqx.modelo;
 
 /**
- * Classe Cliente.
- * Modelo que gerencia clientes.
- * @author matheus, jefferson, thiago
- * @version 1.0
+ * Classe Cliente.<br>
+ * Modelo que gerencia clientes no sistema de V&V.
+ * 
+ * @author	Matheus Souza
+ * @author	Jefferson Silva
+ * @author	Thiago Pereira
+ * @since	05/05/2014
+ * @version	1.0
  */
-
 public class Cliente {
 	
 	private String nome;
@@ -26,19 +29,19 @@ public class Cliente {
 	
 	/**
 	 * Contrutor da classe Cliente com preenchimento dos parametros obrigatório.
-	 * @param nome
-	 * @param endereco
-	 * @param bairro
-	 * @param cidade
+	 * @param nome			Nome Completo.
+	 * @param endereco		Endereço.
+	 * @param bairro		Bairro.
+	 * @param cidade		Cidade.
 	 * @param estado
 	 * @param cep
 	 * @param cnpj
 	 * @param cpf
-	 * @param numero
+	 * @param numero		Número (Endereço).
 	 * @param email
 	 * @param telefone
-	 * @param observacao
-	 * @param id
+	 * @param observacao	Observação, no máximo 200 characteres.
+	 * @param id			ID do Cliente.
 	 */
 	public Cliente(String nome, String endereco, String bairro, String cidade,
 			String estado, String cep, String cnpj, String cpf, int numero,
