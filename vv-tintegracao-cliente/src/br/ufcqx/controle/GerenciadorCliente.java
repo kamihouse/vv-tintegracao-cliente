@@ -24,14 +24,14 @@ public class GerenciadorCliente implements ICrudCliente{
 		
 	}
 
-	public void searchClienteNome(String nome) {
+	public Cliente searchClienteNome(String nome) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
-	public void searchClienteId(int id) {
+	public Cliente searchClienteId(int id) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	public void updateCliente(Cliente cliente) {
@@ -40,6 +40,11 @@ public class GerenciadorCliente implements ICrudCliente{
 	}
 
 	public ArrayList<Cliente> getClientes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Cliente searchClienteCpf(long cpf) {
 		// TODO Auto-generated method stub
 		return null;
 	}
