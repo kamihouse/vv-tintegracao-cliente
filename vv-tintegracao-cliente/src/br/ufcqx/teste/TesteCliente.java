@@ -25,5 +25,23 @@ public class TesteCliente {
 		gerCliente.deleteCliente(cliente);
 		assertTrue(gerCliente.getClientes().isEmpty());
 	}
+	
+	@Test
+	public void testBuscarClienteNome() {
+		Cliente cliente = new Cliente();
+		cliente.setNome("Jefferson");
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente);
+		assertEquals(gerCliente.searchClienteNome("Jefferson"), cliente);
+	}
+	
+	@Test
+	public void testBuscarClienteNomeFalha() {
+		Cliente cliente = new Cliente();
+		cliente.setNome("Jefferson");
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente);
+		assertEquals(gerCliente.searchClienteNome("Jef"), null);
+	}
 
 }

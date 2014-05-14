@@ -23,7 +23,11 @@ public class GerenciadorCliente implements ICrudCliente{
 	}
 
 	public Cliente searchClienteNome(String nome) {
-		// TODO Auto-generated method stub
+		for (Cliente cliente : clientes) {
+			if(cliente.getNome().equals(nome)){
+				return cliente;
+			}
+		}
 		return null;
 	}
 
