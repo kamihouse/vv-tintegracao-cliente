@@ -32,7 +32,11 @@ public class GerenciadorCliente implements ICrudCliente{
 	}
 
 	public Cliente searchClienteId(int id) {
-		// TODO Auto-generated method stub
+		for (Cliente cliente : clientes) {
+			if(cliente.getId() == id){
+				return cliente;
+			}
+		}
 		return null;
 	}
 
@@ -46,7 +50,11 @@ public class GerenciadorCliente implements ICrudCliente{
 	}
 
 	public Cliente searchClienteCpf(long cpf) {
-		// TODO Auto-generated method stub
+		for (Cliente cliente : clientes) {
+			if(cliente.getCpf() == cpf){
+				return cliente;
+			}
+		}
 		return null;
 	}
 }

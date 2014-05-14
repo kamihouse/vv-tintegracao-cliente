@@ -43,5 +43,22 @@ public class TesteCliente {
 		gerCliente.addCliente(cliente);
 		assertEquals(gerCliente.searchClienteNome("Jef"), null);
 	}
+	
+	@Test
+	public void testBuscarClienteId() {
+		Cliente cliente = new Cliente();
+		cliente.setId(4);
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente);
+		assertEquals(gerCliente.searchClienteId(4), cliente);
+	}
 
+	@Test
+	public void testBuscarClienteCpf() {
+		Cliente cliente = new Cliente();
+		cliente.setCpf(1092910929);
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente);
+		assertEquals(gerCliente.searchClienteCpf(1092910929), cliente);
+	}
 }
