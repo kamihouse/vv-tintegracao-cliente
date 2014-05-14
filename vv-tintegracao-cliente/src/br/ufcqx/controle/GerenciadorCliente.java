@@ -7,21 +7,19 @@ import br.ufcqx.modelo.Cliente;
 
 
 public class GerenciadorCliente implements ICrudCliente{
-	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-
-	public void addCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
+	private ArrayList<Cliente> clientes;
+	
+	public GerenciadorCliente(){
+		clientes = new ArrayList<Cliente>();
 	}
 
-	public void deleteCliente(int cliente) {
-		// TODO Auto-generated method stub
+	public void addCliente(Cliente cliente) {
+		clientes.add(cliente);
 		
 	}
 
 	public void deleteCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
+		clientes.remove(cliente);
 	}
 
 	public Cliente searchClienteNome(String nome) {
@@ -40,8 +38,7 @@ public class GerenciadorCliente implements ICrudCliente{
 	}
 
 	public ArrayList<Cliente> getClientes() {
-		// TODO Auto-generated method stub
-		return null;
+		return clientes;
 	}
 
 	public Cliente searchClienteCpf(long cpf) {
