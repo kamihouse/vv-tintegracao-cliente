@@ -2,6 +2,8 @@ package br.ufcqx.teste;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import br.ufcqx.controle.GerenciadorCliente;
@@ -77,4 +79,38 @@ public class TesteCliente {
 		assertEquals(gerCliente.searchClienteNome("Jefferson"), null);
 	}
 	
+	@Test
+	public void testOrdenarClienteNome() {
+		Cliente cliente1 = new Cliente();
+		cliente1.setNome("Jefferson");
+		Cliente cliente2 = new Cliente();
+		cliente2.setNome("Outro");
+		
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente2);
+		gerCliente.addCliente(cliente1);
+		
+		ArrayList<Cliente> clientes;
+		clientes = gerCliente.orderNome(gerCliente.getClientes());
+		assertEquals(clientes.get(0), cliente1);
+	}
+	
+	@Test
+	public void testOrdenarClienteNomeErro() {
+		Cliente cliente1 = new Cliente();
+		cliente1.setNome("Jefferson");
+		Cliente cliente2 = new Cliente();
+		cliente2.setNome("Outro");
+		Cliente cliente3 = new Cliente();
+		cliente3.setNome("Ana");
+		
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente2);
+		gerCliente.addCliente(cliente3);
+		gerCliente.addCliente(cliente1);
+		
+		ArrayList<Cliente> clientes;
+		clientes = gerCliente.orderNome(gerCliente.getClientes());
+		assertNotEquals(clientes.get(0), cliente1);
+	}
 }

@@ -11,5 +11,6 @@ public interface ICrudCliente {
 	public Cliente searchClienteId(int id);
 	public void updateCliente(Cliente selecionado, Cliente dados_alterado); 
 	public ArrayList<Cliente> getClientes();
+	public ArrayList<Cliente> orderNome(ArrayList<Cliente> clientes);
 	
 }

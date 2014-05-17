@@ -1,6 +1,7 @@
 package br.ufcqx.controle;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import br.ufcqx.interfaces.ICrudCliente;
 import br.ufcqx.modelo.Cliente;
@@ -8,6 +9,7 @@ import br.ufcqx.modelo.Cliente;
 
 public class GerenciadorCliente implements ICrudCliente{
 	private ArrayList<Cliente> clientes;
+	private ComparadorCliente meuComparador = new ComparadorCliente();
 	
 	public GerenciadorCliente(){
 		clientes = new ArrayList<Cliente>();
@@ -57,4 +59,10 @@ public class GerenciadorCliente implements ICrudCliente{
 		}
 		return null;
 	}
+
+	public ArrayList<Cliente> orderNome(ArrayList<Cliente> listaClientes) {
+		Collections.sort(listaClientes, meuComparador);
+		return listaClientes;  
+	}
+
 }
