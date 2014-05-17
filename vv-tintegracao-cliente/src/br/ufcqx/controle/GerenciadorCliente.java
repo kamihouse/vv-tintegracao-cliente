@@ -65,4 +65,13 @@ public class GerenciadorCliente implements ICrudCliente{
 		return listaClientes;  
 	}
 
+	public boolean existClienteCpf(String cpf) {
+		for (Cliente cliente : clientes) {
+			if(cliente.getCpf().equals(cpf)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

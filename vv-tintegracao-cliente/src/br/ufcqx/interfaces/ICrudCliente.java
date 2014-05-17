@@ -12,5 +12,5 @@ public interface ICrudCliente {
 	public void updateCliente(Cliente selecionado, Cliente dados_alterado); 
 	public ArrayList<Cliente> getClientes();
 	public ArrayList<Cliente> orderNome(ArrayList<Cliente> clientes);
-	
+	public boolean existClienteCpf(String cpf);
 }

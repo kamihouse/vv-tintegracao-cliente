@@ -65,6 +65,24 @@ public class TesteCliente {
 	}
 
 	@Test
+	public void testExisteClienteCpf() {
+		Cliente cliente = new Cliente();
+		cliente.setCpf("148.233.961-27");
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente);
+		assertEquals(gerCliente.existClienteCpf("148.233.961-27"), true);
+	}
+	
+	@Test
+	public void testExisteClienteCpfErro() {
+		Cliente cliente = new Cliente();
+		cliente.setCpf("148.233.961-27");
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente);
+		assertEquals(gerCliente.existClienteCpf("058.432.123-80"), false);
+	}
+
+	@Test
 	public void testAtualizarCliente() {
 		Cliente cliente1 = new Cliente();
 		cliente1.setNome("Jefferson");
