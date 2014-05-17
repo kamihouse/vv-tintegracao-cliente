@@ -54,11 +54,27 @@ public class TesteCliente {
 	}
 
 	@Test
-	public void testBuscarClienteCpf() {
-		Cliente cliente = new Cliente();
-		cliente.setCpf(1092910929);
+	public void testAtualizarCliente() {
+		Cliente cliente1 = new Cliente();
+		cliente1.setNome("Jefferson");
+		Cliente cliente2 = new Cliente();
+		cliente2.setNome("Outro");
 		GerenciadorCliente gerCliente = new GerenciadorCliente();
-		gerCliente.addCliente(cliente);
-		assertEquals(gerCliente.searchClienteCpf(1092910929), cliente);
+		gerCliente.addCliente(cliente1);
+		gerCliente.updateCliente(cliente1, cliente2);
+		assertEquals(gerCliente.searchClienteNome("Outro"), cliente2);
 	}
+	
+	@Test
+	public void testAtualizarClienteErro() {
+		Cliente cliente1 = new Cliente();
+		cliente1.setNome("Jefferson");
+		Cliente cliente2 = new Cliente();
+		cliente2.setNome("Outro");
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente1);
+		gerCliente.updateCliente(cliente1, cliente2);
+		assertEquals(gerCliente.searchClienteNome("Jefferson"), null);
+	}
+	
 }

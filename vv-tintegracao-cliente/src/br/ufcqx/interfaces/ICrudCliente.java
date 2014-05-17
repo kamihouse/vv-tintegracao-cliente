@@ -9,7 +9,7 @@ public interface ICrudCliente {
 	public Cliente searchClienteNome(String nome);
 	public Cliente searchClienteCpf(long cpf);
 	public Cliente searchClienteId(int id);
-	public void updateCliente(Cliente cliente); 
+	public void updateCliente(Cliente selecionado, Cliente dados_alterado); 
 	public ArrayList<Cliente> getClientes();
 	
 }

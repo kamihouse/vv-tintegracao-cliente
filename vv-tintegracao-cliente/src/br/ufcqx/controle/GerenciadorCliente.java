@@ -40,9 +40,9 @@ public class GerenciadorCliente implements ICrudCliente{
 		return null;
 	}
 
-	public void updateCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
+	public void updateCliente(Cliente selecionado, Cliente dados_alterado) {
+		deleteCliente(selecionado);
+		addCliente(dados_alterado);
 	}
 
 	public ArrayList<Cliente> getClientes() {
