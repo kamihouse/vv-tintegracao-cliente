@@ -7,7 +7,7 @@ public interface ICrudCliente {
 	public void addCliente(Cliente cliente);
 	public void deleteCliente(Cliente cliente);
 	public Cliente searchClienteNome(String nome);
-	public Cliente searchClienteCpf(long cpf);
+	public Cliente searchClienteCpf(String cpf);
 	public Cliente searchClienteId(int id);
 	public void updateCliente(Cliente selecionado, Cliente dados_alterado); 
 	public ArrayList<Cliente> getClientes();

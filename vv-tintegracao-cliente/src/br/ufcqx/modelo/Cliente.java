@@ -19,7 +19,7 @@ public class Cliente {
 	private String estado;
 	private String cep;
 	private String cnpj;
-	private long cpf;
+	private String cpf;
 	private int numero;
 	private String email;
 	private int telefone;
@@ -44,7 +44,7 @@ public class Cliente {
 	 * @param id			ID do Cliente.
 	 */
 	public Cliente(String nome, String endereco, String bairro, String cidade,
-			String estado, String cep, String cnpj, long cpf, int numero,
+			String estado, String cep, String cnpj, String cpf, int numero,
 			String email, int telefone, String observacao, int id) {
 		super();
 		this.nome = nome;
@@ -219,7 +219,7 @@ public class Cliente {
 	 * Recupera Cpf do cliente.
 	 * @return String cpf
 	 */
-	public long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
@@ -228,7 +228,7 @@ public class Cliente {
 	 * Adiciona Cpf do cliente.
 	 * @param cpf
 	 */
-	public void setCpf(long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	

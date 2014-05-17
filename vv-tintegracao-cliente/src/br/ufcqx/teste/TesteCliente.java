@@ -54,6 +54,15 @@ public class TesteCliente {
 		gerCliente.addCliente(cliente);
 		assertEquals(gerCliente.searchClienteId(4), cliente);
 	}
+	
+	@Test
+	public void testBuscarClienteCpf() {
+		Cliente cliente = new Cliente();
+		cliente.setCpf("058.432.123-80");
+		GerenciadorCliente gerCliente = new GerenciadorCliente();
+		gerCliente.addCliente(cliente);
+		assertEquals(gerCliente.searchClienteCpf("058.432.123-80"), cliente);
+	}
 
 	@Test
 	public void testAtualizarCliente() {
