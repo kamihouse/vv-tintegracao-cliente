@@ -141,7 +141,7 @@ public class ClienteDAO {
 	 * @return ResultSet
 	 * @throws SQLException
 	 */
-	public ResultSet searchClienteCpf(String cpf) throws SQLException {
+	public ArrayList<Cliente> searchClienteCpf(String cpf) throws SQLException {
 		String sql = "SELECT * FROM " + this.tabela + " WHERE CPF LIKE ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
@@ -149,9 +149,19 @@ public class ClienteDAO {
 		stmt.setString(1, '%' + cpf + '%');
 
 		ResultSet rs = stmt.executeQuery();
+		
+		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
+		int i = 0;
+		
+		while(rs.next()){
+		
+			cliente.add((Cliente) rs.getObject(i));
+			i++;
+		}
+		
 		stmt.close();
 
-		return rs;
+		return cliente;
 	}
 
 	
@@ -162,7 +172,7 @@ public class ClienteDAO {
 	 * @return ResultSet
 	 * @throws SQLException
 	 */
-	public ResultSet searchClienteId(int idCliente) throws SQLException {
+	public ArrayList<Cliente> searchClienteId(int idCliente) throws SQLException {
 		String sql = "SELECT * FROM " + this.tabela + " WHERE ID_CLIENTE = ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
@@ -170,9 +180,19 @@ public class ClienteDAO {
 		stmt.setInt(1, idCliente);
 
 		ResultSet rs = stmt.executeQuery();
+		
+		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
+		int i = 0;
+		
+		while(rs.next()){
+		
+			cliente.add((Cliente) rs.getObject(i));
+			i++;
+		}
+		
 		stmt.close();
 
-		return rs;
+		return cliente;
 	}
 
 	
