@@ -118,8 +118,13 @@ public class ClienteDAO {
 		
 		// Teste
 		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
+		Object dados;
+		int i = 0;
+		
 		while(rs.next()){
-			cliente.add((Cliente) rs.getObject(0));
+		
+			cliente.add((Cliente) rs.getObject(i));
+			i++;
 		}
 		
 		stmt.close();
