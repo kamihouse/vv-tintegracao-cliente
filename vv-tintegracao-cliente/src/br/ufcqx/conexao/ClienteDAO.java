@@ -1,6 +1,7 @@
 package br.ufcqx.conexao;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import br.ufcqx.modelo.Cliente;
 
@@ -8,23 +9,24 @@ import br.ufcqx.modelo.Cliente;
  * Classe responsável por realizar a conexão e consultas com o banco de dados Postgres.
  */
 public class ClienteDAO {
-	private String url;
-	private String banco;
-	private String senha;
-	private String driver;
-	private Connection con;
-	private String tabela = "CLIENTES";
+	private String		url;
+	private String		banco;
+	private String		senha;
+	private String		driver;
+	private Connection	con;
+	private String		tabela = "CLIENTES";
 
 	
 	/**
 	 * Construtor ClienteDAO com JDBC + PostgreSQL.
 	 */
 	public ClienteDAO() {
-		driver = "org.postgresql.Driver";
-		url = "jdbc:postgresql://localhost:5432/trabalho_integracao";
-		banco = "postgres";
-		senha = "postgres";
+		driver	= "org.postgresql.Driver";
+		url		= "jdbc:postgresql://localhost:5432/trabalho_integracao";
+		banco	= "postgres";
+		senha	= "postgres";
 
+		
 		/**
 		 * Tentando realizar a conexão.
 		 */
@@ -105,7 +107,7 @@ public class ClienteDAO {
 	 * @return ResultSet
 	 * @throws SQLException
 	 */
-	public ResultSet searchClienteNome(String nome) throws SQLException {
+	public ArrayList<Cliente> searchClienteNome(String nome) throws SQLException {
 		String sql = "SELECT * FROM " + this.tabela + " WHERE NOME LIKE ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
@@ -113,9 +115,17 @@ public class ClienteDAO {
 		stmt.setString(1, '%' + nome + '%');
 
 		ResultSet rs = stmt.executeQuery();
+		
+		// Teste
+		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
+		while(rs.next()){
+			cliente.add((Cliente) rs.getObject(0));
+		}
+		
 		stmt.close();
 
-		return rs;
+		//return rs;
+		return cliente;
 	}
 
 	
@@ -163,6 +173,7 @@ public class ClienteDAO {
 	
 	/**
 	 * Verifica se pelo CPF informado o cliente existe.
+	 * 
 	 * @param cpf CPF do Cliente
 	 * @return true = Cliente existe
 	 * @return false = Cliente não existe
