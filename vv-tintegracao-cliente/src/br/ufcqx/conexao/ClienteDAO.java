@@ -45,7 +45,7 @@ public class ClienteDAO {
 	 * @param cliente
 	 * @throws SQLException 
 	 */
-	public void addCliente(Cliente cliente) throws SQLException{
+	public boolean addCliente(Cliente cliente) throws SQLException{
 		String sql = "INSERT INTO CLIENTES (NOME, ENDERECO, BAIRRO, CIDADE, ESTADO, NUMERO, CEP, CNPJ, CPF, EMAIL, TELEFONE, OBSERVACAO) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		
@@ -62,13 +62,15 @@ public class ClienteDAO {
 		stmt.setInt(11, cliente.getTelefone());
 		stmt.setString(1, cliente.getObservacao());
 		
-		stmt.execute();
+		boolean res = stmt.execute();
 		stmt.close();
+		
+		return res;
 	}
 	
 	
-	public void deleteCliente(Cliente cliente){
-		
+	public boolean deleteCliente(Cliente cliente){
+		return true;
 	}
 	
 	
@@ -87,8 +89,8 @@ public class ClienteDAO {
 	}
 	
 	
-	public void existClienteCpf(String cpf){
-		
+	public boolean existClienteCpf(String cpf){
+		return true;
 	}
 	
 	
