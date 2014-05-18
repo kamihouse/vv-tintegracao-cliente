@@ -15,11 +15,11 @@ public class ClienteDAO {
 
 	
 	/**
-	 * Construtor ClienteDAO
+	 * Construtor ClienteDAO com JDBC
 	 */
 	public ClienteDAO() {
 		driver = "org.postgresql.Driver";
-		url = "jdbc:postgresql://localhost:5432/mpf";
+		url = "jdbc:postgresql://localhost:5432/trabalho_integracao";
 		banco = "postgres";
 		senha = "postgres";
 
@@ -30,14 +30,12 @@ public class ClienteDAO {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, banco, senha);
-
+			
 		} catch (ClassNotFoundException objErroDriver) {
 			System.out.println("Erro no carregamento do driver JDBC");
 
 		} catch (SQLException objErroConexao) {
-
 			System.out.println("Erro na Conexao");
-
 		}
 	}
 	
