@@ -45,7 +45,7 @@ public class ClienteDAO {
 	 * @param cliente
 	 * @throws SQLException 
 	 */
-	public void adiciona(Cliente cliente) throws SQLException{
+	public void addCliente(Cliente cliente) throws SQLException{
 		String sql = "INSERT INTO CLIENTES (NOME, ENDERECO, BAIRRO, CIDADE, ESTADO, NUMERO, CEP, CNPJ, CPF, EMAIL, TELEFONE, OBSERVACAO) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		
@@ -65,4 +65,31 @@ public class ClienteDAO {
 		stmt.execute();
 		stmt.close();
 	}
+	
+	
+	public void deleteCliente(Cliente cliente){
+		
+	}
+	
+	
+	public void searchClienteNome(Cliente cliente){
+		
+	}
+	
+	
+	public void searchClienteCpf(Cliente cliente){
+		
+	}
+	
+	
+	public void searchClienteId(Cliente cliente){
+		
+	}
+	
+	
+	public void existClienteCpf(String cpf){
+		
+	}
+	
+	
 }
