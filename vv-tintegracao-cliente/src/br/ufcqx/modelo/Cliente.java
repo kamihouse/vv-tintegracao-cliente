@@ -45,7 +45,7 @@ public class Cliente {
 	 */
 	public Cliente(String nome, String endereco, String bairro, String cidade,
 			String estado, String cep, String cnpj, String cpf, int numero,
-			String email, int telefone, String observacao, int id) {
+			String email, int telefone, String observacao) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
@@ -59,7 +59,6 @@ public class Cliente {
 		this.email = email;
 		this.telefone = telefone;
 		this.observacao = observacao;
-		this.id = id;
 	}
 	
 	

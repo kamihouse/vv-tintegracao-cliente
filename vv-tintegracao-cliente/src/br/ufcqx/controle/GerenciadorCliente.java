@@ -1,63 +1,51 @@
 package br.ufcqx.controle;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import br.ufcqx.conexao.ClienteDAO;
 import br.ufcqx.interfaces.ICrudCliente;
 import br.ufcqx.modelo.Cliente;
 
 
 public class GerenciadorCliente implements ICrudCliente{
-	private ArrayList<Cliente> clientes;
+	private ClienteDAO clienteDAO;
 	private ComparadorCliente meuComparador = new ComparadorCliente();
 	
 	public GerenciadorCliente(){
-		clientes = new ArrayList<Cliente>();
+		clienteDAO = new ClienteDAO();
 	}
 
-	public void addCliente(Cliente cliente) {
-		clientes.add(cliente);
-		
+	public boolean addCliente(Cliente cliente) throws SQLException {
+		return clienteDAO.addCliente(cliente);
 	}
 
-	public void deleteCliente(Cliente cliente) {
-		clientes.remove(cliente);
+	public boolean deleteCliente(int idCliente) throws SQLException {
+		return clienteDAO.deleteCliente(idCliente);
 	}
 
-	public Cliente searchClienteNome(String nome) {
-		for (Cliente cliente : clientes) {
-			if(cliente.getNome().equals(nome)){
-				return cliente;
-			}
-		}
-		return null;
+	public ArrayList<Cliente> searchClienteNome(String nome) throws SQLException {
+		return clienteDAO.searchClienteNome(nome);
 	}
 
-	public Cliente searchClienteId(int id) {
-		for (Cliente cliente : clientes) {
-			if(cliente.getId() == id){
-				return cliente;
-			}
-		}
-		return null;
+	public Cliente searchClienteId(int id) throws SQLException {
+		return clienteDAO.searchClienteId(id);
 	}
-
-	public void updateCliente(Cliente selecionado, Cliente dados_alterado) {
-		deleteCliente(selecionado);
-		addCliente(dados_alterado);
+	
+	// ainda é preciso implementar esse método no ClienteDao. Verificar se já foi implementado para alterar este método.
+	public boolean updateCliente(Cliente selecionado, Cliente dados_alterado) {
+		//deleteCliente(selecionado);
+		//addCliente(dados_alterado);
+		return true;
 	}
 
 	public ArrayList<Cliente> getClientes() {
-		return clientes;
+		return null;
 	}
 
-	public Cliente searchClienteCpf(String cpf) {
-		for (Cliente cliente : clientes) {
-			if(cliente.getCpf().equals(cpf)){
-				return cliente;
-			}
-		}
-		return null;
+	public Cliente searchClienteCpf(String cpf) throws SQLException {
+		return clienteDAO.searchClienteCpf(cpf);
 	}
 
 	public ArrayList<Cliente> orderNome(ArrayList<Cliente> listaClientes) {
@@ -65,12 +53,12 @@ public class GerenciadorCliente implements ICrudCliente{
 		return listaClientes;  
 	}
 
-	public boolean existClienteCpf(String cpf) {
-		for (Cliente cliente : clientes) {
-			if(cliente.getCpf().equals(cpf)){
-				return true;
-			}
-		}
+	public boolean existClienteCpf(String cpf) throws SQLException {
+		return clienteDAO.existClienteCpf(cpf);
+	}
+
+	public boolean deleteCliente(Cliente cliente) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

@@ -118,7 +118,6 @@ public class ClienteDAO {
 		
 		// Teste
 		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
-		Object dados;
 		int i = 0;
 		
 		while(rs.next()){
@@ -141,7 +140,7 @@ public class ClienteDAO {
 	 * @return ResultSet
 	 * @throws SQLException
 	 */
-	public ArrayList<Cliente> searchClienteCpf(String cpf) throws SQLException {
+	public Cliente searchClienteCpf(String cpf) throws SQLException {
 		String sql = "SELECT * FROM " + this.tabela + " WHERE CPF LIKE ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
@@ -150,12 +149,12 @@ public class ClienteDAO {
 
 		ResultSet rs = stmt.executeQuery();
 		
-		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
+		Cliente cliente = new Cliente();
 		int i = 0;
 		
 		while(rs.next()){
 		
-			cliente.add((Cliente) rs.getObject(i));
+			cliente = (Cliente) rs.getObject(i);
 			i++;
 		}
 		
@@ -172,7 +171,7 @@ public class ClienteDAO {
 	 * @return ResultSet
 	 * @throws SQLException
 	 */
-	public ArrayList<Cliente> searchClienteId(int idCliente) throws SQLException {
+	public Cliente searchClienteId(int idCliente) throws SQLException {
 		String sql = "SELECT * FROM " + this.tabela + " WHERE ID_CLIENTE = ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
@@ -181,12 +180,12 @@ public class ClienteDAO {
 
 		ResultSet rs = stmt.executeQuery();
 		
-		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
+		Cliente cliente = new Cliente();
 		int i = 0;
 		
 		while(rs.next()){
 		
-			cliente.add((Cliente) rs.getObject(i));
+			cliente = (Cliente) rs.getObject(i);
 			i++;
 		}
 		
