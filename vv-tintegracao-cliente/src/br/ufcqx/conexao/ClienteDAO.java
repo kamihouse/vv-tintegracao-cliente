@@ -24,7 +24,7 @@ public class ClienteDAO {
 		driver	= "org.postgresql.Driver";
 		url		= "jdbc:postgresql://localhost:5432/Estoque";
 		usuario	= "postgres";
-		senha	= "postgres";
+		senha	= "s5zjxe29";
 
 		
 		/**
@@ -33,6 +33,7 @@ public class ClienteDAO {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, usuario, senha);
+			System.out.println("Conexão realizada com sucesso.");  
 
 		} catch (ClassNotFoundException objErroDriver) {
 			System.out.println("Erro no carregamento do driver JDBC");

@@ -20,7 +20,10 @@ public class GerenciadorCliente implements ICrudCliente{
 	public boolean addCliente(Cliente cliente) throws SQLException {
 		return clienteDAO.addCliente(cliente);
 	}
-
+	
+	/*
+	 * Deleta cliente a partir do id e t
+	 */
 	public boolean deleteCliente(int idCliente) throws SQLException {
 		return clienteDAO.deleteCliente(idCliente);
 	}
