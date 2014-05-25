@@ -10,7 +10,7 @@ import br.ufcqx.modelo.Cliente;
  */
 public class ClienteDAO {
 	private String		url;
-	private String		banco;
+	private String		usuario;
 	private String		senha;
 	private String		driver;
 	private Connection	con;
@@ -23,7 +23,7 @@ public class ClienteDAO {
 	public ClienteDAO() {
 		driver	= "org.postgresql.Driver";
 		url		= "jdbc:postgresql://localhost:5432/trabalho_integracao";
-		banco	= "postgres";
+		usuario	= "postgres";
 		senha	= "postgres";
 
 		
@@ -32,7 +32,7 @@ public class ClienteDAO {
 		 */
 		try {
 			Class.forName(driver);
-			con = DriverManager.getConnection(url, banco, senha);
+			con = DriverManager.getConnection(url, usuario, senha);
 
 		} catch (ClassNotFoundException objErroDriver) {
 			System.out.println("Erro no carregamento do driver JDBC");
