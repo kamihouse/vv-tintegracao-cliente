@@ -12,11 +12,11 @@ public class Main {
 						"12312312312", 213, "joao_teste@testes.com", 88880000, null);
 		
 		GerenciadorCliente gerCli = new GerenciadorCliente();
-		gerCli.addCliente(cliente);	
-		System.out.println("Delete Cliente: " + gerCli.deleteCliente(4));
+		//gerCli.addCliente(cliente);	
+		//System.out.println("Delete Cliente: " + gerCli.deleteCliente(4));
 		
-	
-	
+		cliente = gerCli.searchClienteCpf("123");
+		System.out.println(cliente.getNome() +" "+ cliente.getId());
 	}
 
 }
