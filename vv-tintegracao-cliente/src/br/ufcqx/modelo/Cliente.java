@@ -33,13 +33,13 @@ public class Cliente {
 	 * @param endereco		Endereço.
 	 * @param bairro		Bairro.
 	 * @param cidade		Cidade.
-	 * @param estado
-	 * @param cep
-	 * @param cnpj
-	 * @param cpf
+	 * @param estado		Estado.
+	 * @param cep			CEP.
+	 * @param cnpj			CNPJ.
+	 * @param cpf			CPF
 	 * @param numero		Número (Endereço).
-	 * @param email
-	 * @param telefone
+	 * @param email			Email.
+	 * @param telefone		Telefone.
 	 * @param observacao	Observação, no máximo 200 characteres.
 	 * @param id			ID do Cliente.
 	 */
@@ -47,6 +47,7 @@ public class Cliente {
 			String estado, String cep, String cnpj, String cpf, int numero,
 			String email, int telefone, String observacao) {
 		super();
+		
 		this.nome = nome;
 		this.endereco = endereco;
 		this.bairro = bairro;
@@ -304,4 +305,3 @@ public class Cliente {
 	}
 	
 }
-
