@@ -22,7 +22,7 @@ public class ClienteDAO {
 	 */
 	public ClienteDAO() {
 		driver	= "org.postgresql.Driver";
-		url		= "jdbc:postgresql://localhost:5432/trabalho_integracao";
+		url		= "jdbc:postgresql://localhost:5432/Estoque";
 		usuario	= "postgres";
 		senha	= "postgres";
 
@@ -93,10 +93,14 @@ public class ClienteDAO {
 
 		stmt.setInt(1, idCliente);
 
-		boolean res = stmt.execute();
+		int res = stmt.executeUpdate();
 		stmt.close();
-
-		return res;
+		
+		if(res == 1){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	
