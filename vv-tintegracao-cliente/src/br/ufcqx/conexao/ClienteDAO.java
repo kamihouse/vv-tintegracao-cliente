@@ -33,7 +33,7 @@ public class ClienteDAO {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, usuario, senha);
-			System.out.println("Conex�o realizada com sucesso.");  
+			System.out.println("Conexão realizada com sucesso.");  
 
 		} catch (ClassNotFoundException objErroDriver) {
 			System.out.println("Erro no carregamento do driver JDBC");
@@ -154,18 +154,30 @@ public class ClienteDAO {
 
 		ResultSet rs = stmt.executeQuery();
 		
-		Cliente cliente = new Cliente();
-		int i = 0;
+		Cliente c = new Cliente();
 		
 		while(rs.next()){
-		
-			cliente = (Cliente) rs.getObject(i);
-			i++;
+			// Adicionando o Cliente encontrado
+			
+			c.setId(rs.getInt("ID_CLIENTE"));
+			c.setNome(rs.getString("NOME"));
+			c.setEndereco(rs.getString("ENDERECO"));
+			c.setBairro(rs.getString("BAIRRO"));
+			c.setCidade(rs.getString("CIDADE"));
+			c.setEstado(rs.getString("ESTADO"));
+			c.setNumero(rs.getInt("NUMERO"));
+			c.setCep(rs.getString("CEP"));
+			c.setCnpj(rs.getString("CNPJ"));
+			c.setCpf(rs.getString("CPF"));
+			c.setEmail(rs.getString("EMAIL"));
+			c.setTelefone(rs.getInt("TELEFONE"));
+			c.setObservacao(rs.getString("OBSERVACAO"));			
+			
 		}
 		
 		stmt.close();
 
-		return cliente;
+		return c;
 	}
 
 	
