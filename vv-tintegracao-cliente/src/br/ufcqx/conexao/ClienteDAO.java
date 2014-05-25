@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import br.ufcqx.modelo.Cliente;
 
 /**
- * Classe responsável por realizar a conexão e consultas com o banco de dados Postgres.
+ * Classe responsável por realizar a conexão e consultas com o banco de dados PostgreSQL.
  */
 public class ClienteDAO {
 	private String		url;
@@ -28,12 +28,12 @@ public class ClienteDAO {
 
 		
 		/**
-		 * Tentando realizar a conexão.
+		 * Tentando realizar a conexão com o banco de dados.
 		 */
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, usuario, senha);
-			System.out.println("Conexão realizada com sucesso.");  
+			//System.out.println("Conexão realizada com sucesso.");  
 
 		} catch (ClassNotFoundException objErroDriver) {
 			System.out.println("Erro no carregamento do driver JDBC");
@@ -55,7 +55,8 @@ public class ClienteDAO {
 	public boolean addCliente(Cliente cliente) throws SQLException {
 		String sql = "INSERT INTO "
 				+ this.tabela
-				+ " (NOME, ENDERECO, BAIRRO, CIDADE, ESTADO, NUMERO, CEP, CNPJ, CPF, EMAIL, TELEFONE, OBSERVACAO) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " (NOME, ENDERECO, BAIRRO, CIDADE, ESTADO, NUMERO, CEP, CNPJ, CPF, EMAIL, TELEFONE, OBSERVACAO)"
+				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
 
@@ -108,56 +109,25 @@ public class ClienteDAO {
 	/**
 	 * Recupera cliente pelo Nome informado.
 	 * 
-	 * @param nome Nome do Cliente
-	 * @return ResultSet
+	 * @param nome
+	 * @return ArrayList<Cliente>
+	 * @return null Se não encontrou cliente
 	 * @throws SQLException
 	 */
 	public ArrayList<Cliente> searchClienteNome(String nome) throws SQLException {
 		String sql = "SELECT * FROM " + this.tabela + " WHERE NOME LIKE ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
-
 		stmt.setString(1, '%' + nome + '%');
 
 		ResultSet rs = stmt.executeQuery();
 		
-		// Teste
-		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
-		int i = 0;
-		
-		while(rs.next()){
-		
-			cliente.add((Cliente) rs.getObject(i));
-			i++;
-		}
-		
-		stmt.close();
-
-		//return rs;
-		return cliente;
-	}
-
-	
-	/**
-	 * Recupera cliente pelo CPF informado.
-	 * 
-	 * @param cpf CPF do Cliente
-	 * @return ResultSet
-	 * @throws SQLException
-	 */
-	public Cliente searchClienteCpf(String cpf) throws SQLException {
-		String sql = "SELECT * FROM " + this.tabela + " WHERE CPF LIKE ?";
-
-		PreparedStatement stmt = con.prepareStatement(sql);
-
-		stmt.setString(1, '%' + cpf + '%');
-
-		ResultSet rs = stmt.executeQuery();
-		
-		Cliente c = new Cliente();
+		// Criando uma lista de Cliente.
+		ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
 		
 		while(rs.next()){
 			// Adicionando o Cliente encontrado
+			Cliente c = new Cliente();
 			
 			c.setId(rs.getInt("ID_CLIENTE"));
 			c.setNome(rs.getString("NOME"));
@@ -171,10 +141,50 @@ public class ClienteDAO {
 			c.setCpf(rs.getString("CPF"));
 			c.setEmail(rs.getString("EMAIL"));
 			c.setTelefone(rs.getInt("TELEFONE"));
-			c.setObservacao(rs.getString("OBSERVACAO"));			
+			c.setObservacao(rs.getString("OBSERVACAO"));
 			
+			listaCliente.add(c);
 		}
+		stmt.close();
+
+		return listaCliente;
+	}
+
+	
+	/**
+	 * Recupera cliente pelo CPF informado.
+	 * 
+	 * @param cpf CPF do Cliente
+	 * @return Cliente
+	 * @return null Se cliente não existe
+	 * @throws SQLException
+	 */
+	public Cliente searchClienteCpf(String cpf) throws SQLException {
+		String sql = "SELECT * FROM " + this.tabela + " WHERE CPF LIKE ?";
+
+		PreparedStatement stmt = con.prepareStatement(sql);
+		stmt.setString(1, '%' + cpf + '%');
+
+		ResultSet rs = stmt.executeQuery();
 		
+		Cliente c = new Cliente();
+		
+		while(rs.next()){
+			// Adicionando o Cliente encontrado
+			c.setId(rs.getInt("ID_CLIENTE"));
+			c.setNome(rs.getString("NOME"));
+			c.setEndereco(rs.getString("ENDERECO"));
+			c.setBairro(rs.getString("BAIRRO"));
+			c.setCidade(rs.getString("CIDADE"));
+			c.setEstado(rs.getString("ESTADO"));
+			c.setNumero(rs.getInt("NUMERO"));
+			c.setCep(rs.getString("CEP"));
+			c.setCnpj(rs.getString("CNPJ"));
+			c.setCpf(rs.getString("CPF"));
+			c.setEmail(rs.getString("EMAIL"));
+			c.setTelefone(rs.getInt("TELEFONE"));
+			c.setObservacao(rs.getString("OBSERVACAO"));			
+		}
 		stmt.close();
 
 		return c;
@@ -185,30 +195,39 @@ public class ClienteDAO {
 	 * Recupera cliente pelo ID do Cliente informado.
 	 * 
 	 * @param idCliente ID do Cliente
-	 * @return ResultSet
+	 * @return Cliente
+	 * @return null Se cliente não existe
 	 * @throws SQLException
 	 */
 	public Cliente searchClienteId(int idCliente) throws SQLException {
 		String sql = "SELECT * FROM " + this.tabela + " WHERE ID_CLIENTE = ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
-
 		stmt.setInt(1, idCliente);
 
 		ResultSet rs = stmt.executeQuery();
 		
-		Cliente cliente = new Cliente();
-		int i = 0;
+		Cliente c = new Cliente();
 		
 		while(rs.next()){
-		
-			cliente = (Cliente) rs.getObject(i);
-			i++;
+			// Adicionando o Cliente encontrado
+			c.setId(rs.getInt("ID_CLIENTE"));
+			c.setNome(rs.getString("NOME"));
+			c.setEndereco(rs.getString("ENDERECO"));
+			c.setBairro(rs.getString("BAIRRO"));
+			c.setCidade(rs.getString("CIDADE"));
+			c.setEstado(rs.getString("ESTADO"));
+			c.setNumero(rs.getInt("NUMERO"));
+			c.setCep(rs.getString("CEP"));
+			c.setCnpj(rs.getString("CNPJ"));
+			c.setCpf(rs.getString("CPF"));
+			c.setEmail(rs.getString("EMAIL"));
+			c.setTelefone(rs.getInt("TELEFONE"));
+			c.setObservacao(rs.getString("OBSERVACAO"));
 		}
-		
 		stmt.close();
 
-		return cliente;
+		return c;
 	}
 
 	
