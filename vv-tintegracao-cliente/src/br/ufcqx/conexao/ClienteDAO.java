@@ -8,6 +8,7 @@ import br.ufcqx.modelo.Cliente;
 /**
  * Classe responsável por realizar a conexão e consultas com o banco de dados PostgreSQL.
  * @author thiago <thiagor@engineer.com>
+ * @author jefferson
  */
 public class ClienteDAO {
 	private String		url;
