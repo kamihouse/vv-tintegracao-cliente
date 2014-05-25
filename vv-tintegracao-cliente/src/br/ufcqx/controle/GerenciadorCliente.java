@@ -36,7 +36,7 @@ public class GerenciadorCliente implements ICrudCliente{
 		return clienteDAO.searchClienteId(id);
 	}
 	
-	// ainda é preciso implementar esse método no ClienteDao. Verificar se já foi implementado para alterar este método.
+	// ainda ï¿½ preciso implementar esse mï¿½todo no ClienteDao. Verificar se jï¿½ foi implementado para alterar este mï¿½todo.
 	public boolean updateCliente(Cliente selecionado, Cliente dados_alterado) {
 		//deleteCliente(selecionado);
 		//addCliente(dados_alterado);
