@@ -24,7 +24,7 @@ public class ClienteDAO {
 		driver	= "org.postgresql.Driver";
 		url		= "jdbc:postgresql://localhost:5432/Estoque";
 		usuario	= "postgres";
-		senha	= "s5zjxe29";
+		senha	= "postgres";
 
 		
 		/**
@@ -33,7 +33,7 @@ public class ClienteDAO {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, usuario, senha);
-			System.out.println("Conexão realizada com sucesso.");  
+			System.out.println("Conexï¿½o realizada com sucesso.");  
 
 		} catch (ClassNotFoundException objErroDriver) {
 			System.out.println("Erro no carregamento do driver JDBC");
@@ -83,8 +83,8 @@ public class ClienteDAO {
 	 * Remove cliente na base de dados
 	 * 
 	 * @param idCliente
-	 * @return true Delete ok
-	 * @return false Delete falha
+	 * @return true Delete ok.
+	 * @return false Delete falha.
 	 * @throws SQLException
 	 */
 	public boolean deleteCliente(int idCliente) throws SQLException {
