@@ -7,7 +7,7 @@ import br.ufcqx.controle.GerenciadorCliente;
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
-		Cliente cliente = new Cliente("João", "Rua dos testes", "Bairro dos Testes", 
+		Cliente cliente = new Cliente("Joï¿½o", "Rua dos testes", "Bairro dos Testes", 
 						"Cidade dos Testes", "Estado dos Testes", "63900-000", null, 
 						"12312312312", 213, "joao_teste@testes.com", 88880000, null);
 		
@@ -15,8 +15,8 @@ public class Main {
 		//gerCli.addCliente(cliente);	
 		//System.out.println("Delete Cliente: " + gerCli.deleteCliente(4));
 		
-		cliente = gerCli.searchClienteCpf("123");
-		System.out.println(cliente.getNome() +" "+ cliente.getId());
+		gerCli.addCliente(cliente);	
+		System.out.println("Delete Cliente: " + gerCli.deleteCliente(4));
 	}
 
 }
