@@ -114,7 +114,7 @@ public class ClienteDAO {
 		int res = stmt.executeUpdate();
 		stmt.close();
 		
-		//Preparando o retorno caso haja modificação no banco de dados
+		//Preparando o retorno caso aconteça modificação no banco de dados
 		if(res == 1){
 			return true;
 		} else {
@@ -282,17 +282,68 @@ public class ClienteDAO {
 
 		PreparedStatement stmt = con.prepareStatement(sql);
 
-		stmt.setString(1, '%' + cpf + '%');
+		stmt.setString(1, cpf);
 
 		ResultSet rs = stmt.executeQuery();
 		stmt.close();
 
-		// Verificando se a qtde de resultados da consulta foi nula.
-		if (rs.wasNull()) {
-			return false;
-		} else {
+		// Verificando se a qtde de resultados da consulta é nula.
+		if (rs.next()) {
 			return true;
+		} else {
+			return false;
 		}
 	}
-
+	
+	
+	/**
+	 * Lista todos clientes registrados na base de dados em ordem alfabetica.
+	 * 
+	 * @return Lista de Clientes
+	 * @throws SQLException
+	 */
+	public ArrayList<Cliente> getClientes() throws SQLException{
+		String sql = "SELECT * FROM " + this.tabela + " ORDER BY NOME ASC";
+		
+		PreparedStatement stmt = con.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		
+		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+		
+		while(rs.next()){
+			Cliente c = new Cliente();
+			
+			c.setId(rs.getInt("ID_CLIENTE"));
+			c.setNome(rs.getString("NOME"));
+			c.setEndereco(rs.getString("ENDERECO"));
+			c.setBairro(rs.getString("BAIRRO"));
+			c.setCidade(rs.getString("CIDADE"));
+			c.setEstado(rs.getString("ESTADO"));
+			c.setNumero(rs.getInt("NUMERO"));
+			c.setCep(rs.getString("CEP"));
+			c.setCnpj(rs.getString("CNPJ"));
+			c.setCpf(rs.getString("CPF"));
+			c.setEmail(rs.getString("EMAIL"));
+			c.setTelefone(rs.getInt("TELEFONE"));
+			c.setObservacao(rs.getString("OBSERVACAO"));
+			
+			listaClientes.add(c);
+		}
+		stmt.close();
+		
+		return listaClientes;
+	}
+	
+	
+	/**
+	 * Trunca a tabela para efetuar os testes.
+	 * @throws SQLException
+	 */
+	protected void truncarTabela() throws SQLException{
+		String sql = "TRUNCATE " + this.tabela;
+		
+		PreparedStatement stmt = con.prepareStatement(sql);
+		stmt.execute();
+		stmt.close();
+	}
 }
